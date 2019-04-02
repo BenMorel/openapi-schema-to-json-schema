@@ -138,7 +138,7 @@ class SchemaConverter
             $schema->type = [$schema->type, 'null'];
 
             if (isset($schema->enum) && is_array($schema->enum)) {
-                $schema->enum[] = 'null';
+                $schema->enum[] = null;
             }
         }
 
