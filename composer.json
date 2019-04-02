@@ -1,0 +1,15 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BenMorel\\OpenApiSchemaToJsonSchema\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BenMorel\\OpenApiSchemaToJsonSchema\\Tests\\": "tests/"
+        }
+    }
+}
