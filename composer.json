@@ -1,6 +1,20 @@
 {
+    "name": "benmorel/openapi-schema-to-json-schema",
+    "description": "Convert an OpenAPI schema object to a JSON Schema object",
+    "type": "library",
+    "keywords": [
+        "OpenAPI",
+        "JSON Schema",
+        "Swagger"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*"
+    },
     "require-dev": {
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^8.0",
+        "php-coveralls/php-coveralls": "^2.0"
     },
     "autoload": {
         "psr-4": {
