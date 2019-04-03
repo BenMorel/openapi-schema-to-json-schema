@@ -108,17 +108,10 @@ class SchemaConverter
         $props = new stdClass;
 
         foreach ($properties as $key => $property) {
-            $removeProp = false;
-
             foreach ($options->removeProps as $prop) {
                 if (isset($property->{$prop}) && $property->{$prop} === true) {
-                    $removeProp = true;
-                    break;
+                    continue 2;
                 }
-            }
-
-            if ($removeProp) {
-                continue;
             }
 
             $props->{$key} = self::convertSchema($property, $options);
