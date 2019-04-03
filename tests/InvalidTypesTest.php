@@ -55,4 +55,35 @@ class InvalidTypesTest extends TestCase
 
         Convert::openapiSchemaToJsonSchema($schema);
     }
+
+    /**
+     * @dataProvider providerValidTypes
+     */
+    public function testValidTypes(string $type) : void
+    {
+        $schema = (object) [
+            'type' => $type
+        ];
+
+        $expected = (object) [
+            '$schema' => 'http://json-schema.org/draft-04/schema#',
+            'type' => $type
+        ];
+
+        $result = Convert::openapiSchemaToJsonSchema($schema);
+
+        $this->assertEquals($expected, $result);
+    }
+
+    public function providerValidTypes() : array
+    {
+        return [
+            ['integer'],
+            ['number'],
+            ['string'],
+            ['boolean'],
+            ['object'],
+            ['array']
+        ];
+    }
 }
