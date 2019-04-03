@@ -166,10 +166,10 @@ class SchemaConverter
 		    'MAX_INT_32' => 2147483647,
 		    'MIN_INT_64' => -9223372036854775808,
             'MAX_INT_64' => 9223372036854775807,
-		    'MIN_FLOAT' => - pow(2, 128),
-		    'MAX_FLOAT' => pow(2, 128) - 1,
-		    'MIN_DOUBLE' => PHP_FLOAT_MIN,
-		    'MAX_DOUBLE' => PHP_FLOAT_MAX,
+		    'MIN_FLOAT' => -3.4028236692094E+38,
+		    'MAX_FLOAT' => 3.4028236692094E+38,
+		    'MIN_DOUBLE' => -4.9406564584125E-324,
+		    'MAX_DOUBLE' => 1.7976931348623E+308,
 
             // Matches base64 (RFC 4648)
             // Matches `standard` base64 not `base64url`. The specification does not
@@ -206,8 +206,8 @@ class SchemaConverter
      */
     private static function convertFormatInt32(object $schema, array $settings) : object
     {
-        $schema->minimum = $settings['MIN_INT_32'];
-        $schema->maximum = $settings['MAX_INT_32'];
+//        $schema->minimum = $settings['MIN_INT_32'];
+//        $schema->maximum = $settings['MAX_INT_32'];
 
         return $schema;
     }
@@ -220,8 +220,8 @@ class SchemaConverter
      */
     private static function convertFormatInt64(object $schema, array $settings) : object
     {
-        $schema->minimum = $settings['MIN_INT_64'];
-        $schema->maximum = $settings['MAX_INT_64'];
+//        $schema->minimum = $settings['MIN_INT_64'];
+//        $schema->maximum = $settings['MAX_INT_64'];
 
         return $schema;
     }
@@ -234,8 +234,8 @@ class SchemaConverter
      */
     private static function convertFormatFloat(object $schema, array $settings) : object
     {
-        $schema->minimum = $settings['MIN_FLOAT'];
-        $schema->maximum = $settings['MAX_FLOAT'];
+//        $schema->minimum = $settings['MIN_FLOAT'];
+//        $schema->maximum = $settings['MAX_FLOAT'];
 
         return $schema;
     }
@@ -248,8 +248,8 @@ class SchemaConverter
      */
     private static function convertFormatDouble(object $schema, array $settings) : object
     {
-        $schema->minimum = $settings['MIN_DOUBLE'];
-        $schema->maximum = $settings['MAX_DOUBLE'];
+//        $schema->minimum = $settings['MIN_DOUBLE'];
+//        $schema->maximum = $settings['MAX_DOUBLE'];
 
         return $schema;
     }
