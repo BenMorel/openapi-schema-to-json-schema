@@ -33,7 +33,7 @@ JSON
         );
 
         $result = Convert::openapiParameterToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertingExtensiveOpenApi3Parameter() : void
@@ -66,7 +66,7 @@ JSON
         );
 
         $result = Convert::openapiParameterToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertingOpenApi3ParameterWithMimeSchemas() : void
@@ -108,7 +108,7 @@ JSON
         );
 
         $result = Convert::openapiParameterToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertingOpenApi3ParameterWithMimesWithoutSchema() : void
@@ -144,7 +144,7 @@ JSON
         );
 
         $result = Convert::openapiParameterToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testUsingOpenApi3ParameterDescription() : void
@@ -170,7 +170,7 @@ JSON
         );
 
         $result = Convert::openapiParameterToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testThrowingOnOpenApi3ParametersWithoutSchemas() : void

@@ -44,7 +44,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlingAdditionalPropertiesOfSameTypeNumber() : void
@@ -82,7 +82,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlingAdditionalPropertiesWithOneOfPatternPropertyTypes() : void
@@ -126,7 +126,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlingAdditionalPropertiesWithMatchingObjects() : void
@@ -185,7 +185,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlingAdditionalPropertiesWithNonMatchingObjects() : void
@@ -251,7 +251,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlingAdditionalPropertiesWithMatchingArray() : void
@@ -304,7 +304,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlingAdditionalPropertiesWithCompositionTypes() : void
@@ -363,7 +363,7 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testNotSupportingPatternProperties() : void
@@ -403,7 +403,7 @@ JSON
             'supportPatternProperties' => false
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testNotSupportingPatternPropertiesByDefault() : void
@@ -441,7 +441,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testSettingCustomPatternPropertiesHandler() : void
@@ -484,7 +484,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema, $options);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testAdditionalPropertiesNotModifiedIfSetToTrue() : void
@@ -520,6 +520,6 @@ JSON
             'supportPatternProperties' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

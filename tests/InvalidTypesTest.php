@@ -72,7 +72,7 @@ class InvalidTypesTest extends TestCase
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function providerValidTypes() : array

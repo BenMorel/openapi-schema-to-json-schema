@@ -69,7 +69,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRemoveReadOnlyByDefault() : void
@@ -102,7 +102,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRemoveWriteOnlyByDefault() : void
@@ -135,7 +135,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRemoveXmlByDefault() : void
@@ -170,7 +170,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRemoveExternalDocsByDefault() : void
@@ -205,7 +205,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRemoveExampleByDefault() : void
@@ -228,7 +228,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRemoveDeprecatedByDefault() : void
@@ -251,7 +251,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRetainingFields() : void
@@ -307,6 +307,6 @@ JSON
             'keepNotSupported' => ['readOnly', 'discriminator']
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

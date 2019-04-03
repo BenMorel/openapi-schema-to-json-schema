@@ -61,7 +61,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testIteratesAnyOfs() : void
@@ -126,7 +126,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testIteratesOneOfs() : void
@@ -191,7 +191,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertsTypesInNot() : void
@@ -224,7 +224,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertsTypesInNot2() : void
@@ -251,7 +251,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testNestedCombinationKeywords() : void
@@ -343,6 +343,6 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

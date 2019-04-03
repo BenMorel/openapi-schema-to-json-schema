@@ -48,7 +48,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testAdditionalPropertiesIsFalse() : void
@@ -83,7 +83,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testAdditionalPropertiesIsTrue() : void
@@ -118,7 +118,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testAdditionalPropertiesIsAnObject() : void
@@ -167,6 +167,6 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

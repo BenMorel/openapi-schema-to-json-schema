@@ -29,7 +29,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesInt64Format() : void
@@ -52,7 +52,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesFloatFormat() : void
@@ -75,7 +75,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesDoubleFormat() : void
@@ -98,6 +98,6 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

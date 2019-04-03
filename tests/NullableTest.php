@@ -28,7 +28,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesNullableFalseWithoutEnum() : void
@@ -50,7 +50,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesNullableTrueWithEnum() : void
@@ -74,7 +74,7 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesNullableFalseWithEnum() : void
@@ -98,6 +98,6 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

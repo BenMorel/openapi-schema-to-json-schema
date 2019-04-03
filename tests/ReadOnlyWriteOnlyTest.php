@@ -45,7 +45,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema, $options);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function providerRemovingReadOnlyProp() : array
@@ -99,7 +99,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema, $options);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function providerRemovingWriteOnlyProp() : array
@@ -154,7 +154,7 @@ JSON
             'removeReadOnly' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testDeletingRequiredIfEmpty() : void
@@ -193,7 +193,7 @@ JSON
             'removeReadOnly' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testDeletingPropertiesIfEmpty() : void
@@ -224,7 +224,7 @@ JSON
             'removeReadOnly' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testNotRemovingReadOnlyPropsByDefault() : void
@@ -265,7 +265,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testNotRemovingWriteOnlyPropsByDefault() : void
@@ -306,7 +306,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testDeepSchema() : void
@@ -373,6 +373,6 @@ JSON
             'removeReadOnly' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

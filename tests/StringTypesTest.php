@@ -28,7 +28,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testDateRetained() : void
@@ -52,7 +52,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testDateConvertedToDateTime() : void
@@ -78,7 +78,7 @@ JSON
             'dateToDateTime' => true
         ]);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testHandlesByteFormat() : void
@@ -103,7 +103,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRetainsCustomFormats() : void
@@ -127,7 +127,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRetainsPasswordFormat() : void
@@ -151,7 +151,7 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testRetainsBinaryFormat() : void
@@ -175,6 +175,6 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

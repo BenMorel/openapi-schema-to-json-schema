@@ -34,6 +34,6 @@ JSON
         );
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

@@ -15,7 +15,7 @@ class ComplexSchemasTest extends TestCase
         $expected = json_decode(file_get_contents(__DIR__ . '/schemas/schema-1-expected.json'));
 
         $result = Convert::openapiSchemaToJsonSchema($schema);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertingComplexSchemaInPlace() : void
@@ -27,7 +27,7 @@ class ComplexSchemasTest extends TestCase
             'cloneSchema' => false
         ]);
 
-        $this->assertEquals($expected, $result);
-        $this->assertSame($schema, $result);
+        self::assertEquals($expected, $result);
+        self::assertSame($schema, $result);
     }
 }

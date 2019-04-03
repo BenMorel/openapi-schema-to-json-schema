@@ -32,12 +32,12 @@ JSON
 
         $result = Convert::openapiSchemaToJsonSchema($schema, $options);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
 
         if ($cloneSchema) {
-            $this->assertNotSame($schema, $result);
+            self::assertNotSame($schema, $result);
         } else {
-            $this->assertSame($schema, $result);
+            self::assertSame($schema, $result);
         }
     }
 
