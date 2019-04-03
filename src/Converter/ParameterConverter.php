@@ -29,7 +29,7 @@ class ParameterConverter
             return self::convertFromContents($parameter, $options);
         }
 
-        throw new InvalidInputException('OpenAPI parameter must have either a \'schema\' or a \'content\' property');
+        throw new InvalidInputException('OpenAPI parameter must have either a \'schema\' or a \'content\' property.');
     }
 
     /**
@@ -43,7 +43,8 @@ class ParameterConverter
         $schemas = new stdClass;
 
         foreach ($parameter->content as $mime => $content) {
-            $schemas->{$mime} = self::convertParameterSchema($parameter, $content->schema, $options);
+            $schema = isset($content->schema) && is_object($content->schema) ? $content->schema : new stdClass;
+            $schemas->{$mime} = self::convertParameterSchema($parameter, $schema, $options);
         }
 
         return $schemas;
@@ -51,7 +52,7 @@ class ParameterConverter
 
     /**
      * @param object $parameter
-     * @param object $schema    @todo seems to be allowed to be undefined?
+     * @param object $schema
      * @param Options $options
      *
      * @return object
