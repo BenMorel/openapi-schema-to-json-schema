@@ -111,7 +111,7 @@ class SchemaConverter
             $removeProp = false;
 
             foreach ($options->removeProps as $prop) {
-                if (isset($properties->{$prop}) && $properties->{$prop} === true) {
+                if (isset($property->{$prop}) && $property->{$prop} === true) {
                     $removeProp = true;
                     break;
                 }
