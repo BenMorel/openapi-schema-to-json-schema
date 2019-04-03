@@ -154,120 +154,18 @@ class SchemaConverter
 
         $format = $schema->format;
 
-        $settings = [
-            'MIN_INT_32' => -2147483648,
-		    'MAX_INT_32' => 2147483647,
-		    'MIN_INT_64' => -9223372036854775808,
-            'MAX_INT_64' => 9223372036854775807,
-		    'MIN_FLOAT' => -3.4028236692094E+38,
-		    'MAX_FLOAT' => 3.4028236692094E+38,
-		    'MIN_DOUBLE' => -4.9406564584125E-324,
-		    'MAX_DOUBLE' => 1.7976931348623E+308,
-
-            // Matches base64 (RFC 4648)
-            // Matches `standard` base64 not `base64url`. The specification does not
-            // exclude it but current ongoing OpenAPI plans will distinguish both.
-            'BYTE_PATTERN' => '^[\\w\\d+\\/=]*$'
-        ];
-
         if ($format === 'date' && $options->dateToDateTime) {
-            return self::convertFormatDate($schema);
-        }
+            $schema->format = 'date-time';
 
-        $formatConverters = [
-            'int32'  => [self::class, 'convertFormatInt32'],
-            'int64'  => [self::class, 'convertFormatInt64'],
-            'float'  => [self::class, 'convertFormatFloat'],
-            'double' => [self::class, 'convertFormatDouble'],
-            'byte'   => [self::class, 'convertFormatByte']
-        ];
-
-        if (! isset($formatConverters[$format])) {
             return $schema;
         }
 
-        $converter = $formatConverters[$format];
-
-        return $converter($schema, $settings);
-    }
-
-    /**
-     * @param object $schema
-     * @param array  $settings
-     *
-     * @return object
-     */
-    private static function convertFormatInt32(object $schema, array $settings) : object
-    {
-//        $schema->minimum = $settings['MIN_INT_32'];
-//        $schema->maximum = $settings['MAX_INT_32'];
-
-        return $schema;
-    }
-
-    /**
-     * @param object $schema
-     * @param array  $settings
-     *
-     * @return object
-     */
-    private static function convertFormatInt64(object $schema, array $settings) : object
-    {
-//        $schema->minimum = $settings['MIN_INT_64'];
-//        $schema->maximum = $settings['MAX_INT_64'];
-
-        return $schema;
-    }
-
-    /**
-     * @param object $schema
-     * @param array  $settings
-     *
-     * @return object
-     */
-    private static function convertFormatFloat(object $schema, array $settings) : object
-    {
-//        $schema->minimum = $settings['MIN_FLOAT'];
-//        $schema->maximum = $settings['MAX_FLOAT'];
-
-        return $schema;
-    }
-
-    /**
-     * @param object $schema
-     * @param array  $settings
-     *
-     * @return object
-     */
-    private static function convertFormatDouble(object $schema, array $settings) : object
-    {
-//        $schema->minimum = $settings['MIN_DOUBLE'];
-//        $schema->maximum = $settings['MAX_DOUBLE'];
-
-        return $schema;
-    }
-
-    /**
-     * @param object $schema
-     *
-     * @return object
-     */
-    private static function convertFormatDate(object $schema) : object
-    {
-        $schema->format = 'date-time';
-
-        return $schema;
-    }
-
-    /**
-     * @param object $schema
-     * @param array  $settings
-     *
-     * @return object
-     */
-    private static function convertFormatByte(object $schema, array $settings) : object
-    {
-        $schema->pattern = $settings['BYTE_PATTERN'];
+        if ($format === 'byte') {
+            // Matches base64 (RFC 4648)
+            // Matches `standard` base64 not `base64url`. The specification does not
+            // exclude it but current ongoing OpenAPI plans will distinguish both.
+            $schema->pattern = '^[\\w\\d+\\/=]*$';
+        }
 
         return $schema;
     }
