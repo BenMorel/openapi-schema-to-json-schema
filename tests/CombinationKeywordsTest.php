@@ -132,7 +132,7 @@ JSON
     public function testIteratesOneOfs() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "oneOf": [
                     {
                         "type": "object",
@@ -161,7 +161,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "oneOf": [
                     {
@@ -197,7 +197,7 @@ JSON
     public function testConvertsTypesInNot() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "properties": {
                     "not": {
@@ -210,7 +210,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {
@@ -230,7 +230,7 @@ JSON
     public function testConvertsTypesInNot2() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "not": {
                     "type": "string",
                     "minLength": 8
@@ -240,7 +240,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "not": {
                     "type": "string",
@@ -257,7 +257,7 @@ JSON
     public function testNestedCombinationKeywords() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "anyOf": [
                     {
                         "allOf": [
@@ -301,7 +301,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "anyOf": [
                     {

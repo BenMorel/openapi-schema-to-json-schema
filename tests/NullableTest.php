@@ -12,7 +12,7 @@ class NullableTest extends TestCase
     public function testHandlesNullableTrueWithoutEnum() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "string",
                 "nullable": true
             }
@@ -20,7 +20,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": ["string", "null"]
             }
@@ -34,7 +34,7 @@ JSON
     public function testHandlesNullableFalseWithoutEnum() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "string",
                 "nullable": false
             }
@@ -42,7 +42,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "string"
             }
@@ -56,7 +56,7 @@ JSON
     public function testHandlesNullableTrueWithEnum() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "string",
                 "enum": ["a", "b"],
                 "nullable": true
@@ -65,7 +65,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": ["string", "null"],
                 "enum": ["a", "b", null]
@@ -80,7 +80,7 @@ JSON
     public function testHandlesNullableFalseWithEnum() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "string",
                 "enum": ["a", "b"],
                 "nullable": false
@@ -89,7 +89,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "string",
                 "enum": ["a", "b"]

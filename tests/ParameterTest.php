@@ -13,7 +13,7 @@ class ParameterTest extends TestCase
     public function testConvertingMinimalOpenApi3Parameter() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "name": "parameter name",
                 "in": "cookie",
                 "schema": {
@@ -25,7 +25,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": ["string", "null"]
             }
@@ -39,7 +39,7 @@ JSON
     public function testConvertingExtensiveOpenApi3Parameter() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "name": "parameter name",
                 "in": "cookie",
                 "schema": {
@@ -58,7 +58,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": ["string", "null"]
             }
@@ -72,7 +72,7 @@ JSON
     public function testConvertingOpenApi3ParameterWithMimeSchemas() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "name": "parameter name",
                 "in": "cookie",
                 "content": {
@@ -94,7 +94,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "application/javascript": {
                     "$schema": "http://json-schema.org/draft-04/schema#",
                     "type": ["string", "null"]
@@ -114,7 +114,7 @@ JSON
     public function testConvertingOpenApi3ParameterWithMimesWithoutSchema() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "name": "parameter name",
                 "in": "cookie",
                 "content": {
@@ -131,7 +131,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "application/javascript": {
                     "$schema": "http://json-schema.org/draft-04/schema#",
                     "type": ["string", "null"]
@@ -150,7 +150,7 @@ JSON
     public function testUsingOpenApi3ParameterDescription() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "name": "parameter name",
                 "in": "cookie",
                 "description": "parameter description",
@@ -162,7 +162,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "description": "parameter description"
             }
@@ -176,7 +176,7 @@ JSON
     public function testThrowingOnOpenApi3ParametersWithoutSchemas() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "name": "parameter name",
                 "in": "cookie"
             }

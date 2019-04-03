@@ -12,7 +12,7 @@ class PatternPropertiesTest extends TestCase
     public function testHandlingAdditionalPropertiesOfSameTypeString() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
@@ -27,7 +27,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": false,
@@ -50,7 +50,7 @@ JSON
     public function testHandlingAdditionalPropertiesOfSameTypeNumber() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "number"
@@ -65,7 +65,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": false,
@@ -88,7 +88,7 @@ JSON
     public function testHandlingAdditionalPropertiesWithOneOfPatternPropertyTypes() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "number"
@@ -106,7 +106,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": false,
@@ -132,7 +132,7 @@ JSON
     public function testHandlingAdditionalPropertiesWithMatchingObjects() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "object",
@@ -160,7 +160,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": false,
@@ -191,7 +191,7 @@ JSON
     public function testHandlingAdditionalPropertiesWithNonMatchingObjects() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "object",
@@ -219,7 +219,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": {
@@ -257,7 +257,7 @@ JSON
     public function testHandlingAdditionalPropertiesWithMatchingArray() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "array",
@@ -281,7 +281,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": false,
@@ -310,7 +310,7 @@ JSON
     public function testHandlingAdditionalPropertiesWithCompositionTypes() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "oneOf": [
@@ -339,7 +339,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": false,
@@ -369,7 +369,7 @@ JSON
     public function testNotSupportingPatternProperties() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
@@ -384,7 +384,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": {
@@ -409,7 +409,7 @@ JSON
     public function testNotSupportingPatternPropertiesByDefault() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
@@ -424,7 +424,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": {
@@ -447,7 +447,7 @@ JSON
     public function testSettingCustomPatternPropertiesHandler() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
@@ -462,7 +462,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": {
@@ -490,7 +490,7 @@ JSON
     public function testAdditionalPropertiesNotModifiedIfSetToTrue() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "additionalProperties": true,
                 "x-patternProperties": {
@@ -503,7 +503,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "additionalProperties": true,

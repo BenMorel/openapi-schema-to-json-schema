@@ -12,7 +12,7 @@ class PropertiesTest extends TestCase
     public function testProperties() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["bar"],
                 "properties": {
@@ -30,7 +30,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "required": ["bar"],
@@ -54,7 +54,7 @@ JSON
     public function testAdditionalPropertiesIsFalse() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "properties": {
                     "foo": {
@@ -68,7 +68,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {
@@ -89,7 +89,7 @@ JSON
     public function testAdditionalPropertiesIsTrue() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "properties": {
                     "foo": {
@@ -103,7 +103,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {
@@ -124,7 +124,7 @@ JSON
     public function testAdditionalPropertiesIsAnObject() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "properties": {
                     "foo": {
@@ -145,7 +145,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {

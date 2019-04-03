@@ -12,7 +12,7 @@ class ItemsTest extends TestCase
     public function testItems() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "array",
                 "items": {
                     "type": "string",
@@ -23,7 +23,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "array",
                 "items": {

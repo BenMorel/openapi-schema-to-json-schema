@@ -15,7 +15,7 @@ class ReadOnlyWriteOnlyTest extends TestCase
     public function testRemovingReadOnlyProp(array $options) : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "properties": {
                     "prop1": {
@@ -31,7 +31,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {
@@ -69,7 +69,7 @@ JSON
     public function testRemovingWriteOnlyProp(array $options) : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "properties": {
                     "prop1": {
@@ -85,7 +85,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {
@@ -120,7 +120,7 @@ JSON
     public function testRemovingReadOnlyFromRequired() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["prop1", "prop2"],
                 "properties": {
@@ -137,7 +137,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "required": ["prop2"],
@@ -160,7 +160,7 @@ JSON
     public function testDeletingRequiredIfEmpty() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["prop1"],
                 "properties": {
@@ -177,7 +177,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "properties": {
@@ -199,7 +199,7 @@ JSON
     public function testDeletingPropertiesIfEmpty() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["prop1"],
                 "properties": {
@@ -230,7 +230,7 @@ JSON
     public function testNotRemovingReadOnlyPropsByDefault() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["prop1", "prop2"],
                 "properties": {
@@ -247,7 +247,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "required": ["prop1", "prop2"],
@@ -271,7 +271,7 @@ JSON
     public function testNotRemovingWriteOnlyPropsByDefault() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["prop1", "prop2"],
                 "properties": {
@@ -288,7 +288,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "required": ["prop1", "prop2"],
@@ -312,7 +312,7 @@ JSON
     public function testDeepSchema() : void
     {
         $schema = json_decode(<<<'JSON'
-        {
+            {
                 "type": "object",
                 "required": ["prop1", "prop2"],
                 "properties": {
@@ -349,7 +349,7 @@ JSON
         );
 
         $expected = json_decode(<<<'JSON'
-        {
+            {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "object",
                 "required": ["prop2"],
