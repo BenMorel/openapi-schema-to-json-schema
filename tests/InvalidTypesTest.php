@@ -10,40 +10,28 @@ use PHPUnit\Framework\TestCase;
 
 class InvalidTypesTest extends TestCase
 {
-    public function testInvalidTypeDateTime() : void
+    /**
+     * @dataProvider providerInvalidTypes
+     */
+    public function testInvalidTypes($type) : void
     {
         $this->expectException(InvalidTypeException::class);
-        $this->expectExceptionMessage('Type "dateTime" is not a valid type.');
+        $this->expectExceptionMessage('Type ' . json_encode($type) . ' is not a valid type.');
 
         $schema = (object) [
-            'type' => 'dateTime'
+            'type' => $type
         ];
 
         Convert::openapiSchemaToJsonSchema($schema);
     }
 
-    public function testInvalidTypeFoo() : void
+    public function providerInvalidTypes() : array
     {
-        $this->expectException(InvalidTypeException::class);
-        $this->expectExceptionMessage('Type "foo" is not a valid type.');
-
-        $schema = (object) [
-            'type' => 'foo'
+        return [
+            ['dateTime'],
+            ['foo'],
+            [['string', null]], // 'null' should be a string
         ];
-
-        Convert::openapiSchemaToJsonSchema($schema);
-    }
-
-    public function testInvalidTypeNotAsString() : void
-    {
-        $this->expectException(InvalidTypeException::class);
-        $this->expectExceptionMessage('Type ["string",null] is not a valid type.');
-
-        $schema = (object) [
-            'type' => ['string', null]
-        ];
-
-        Convert::openapiSchemaToJsonSchema($schema);
     }
 
     public function testInvalidTypeInsideComplexSchema() : void
