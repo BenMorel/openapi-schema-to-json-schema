@@ -6,6 +6,7 @@ namespace BenMorel\OpenapiSchemaToJsonSchema;
 
 /**
  * The options passed to the converters.
+ * This is an internal class, that should not be used directly.
  */
 class Options
 {

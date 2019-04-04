@@ -12,8 +12,8 @@ use Closure;
 class Convert
 {
     /**
-     * @param object $schema
-     * @param array  $options
+     * @param object $schema  The OpenAPI schema object. This is expected to be the result of a json_decode() call.
+     * @param array  $options An optional array of options. See the README for more information.
      *
      * @return object
      *
@@ -32,8 +32,8 @@ class Convert
     }
 
     /**
-     * @param object $schema
-     * @param array  $options
+     * @param object $schema  The OpenAPI parameter object. This is expected to be the result of a json_decode() call.
+     * @param array  $options An optional array of options. See the README for more information.
      *
      * @return object
      *
