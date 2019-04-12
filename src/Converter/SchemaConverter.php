@@ -37,6 +37,18 @@ class SchemaConverter
         $structs = $options->structs;
         $notSupported = $options->notSupported;
 
+        // Handle nullable oneOf/anyOf/allOf;
+        // this is not currently supported by @mikunn's nodejs package, this library is based on:
+        // https://github.com/mikunn/openapi-schema-to-json-schema/issues/31
+
+        if (isset($schema->nullable) && $schema->nullable === true) {
+            foreach (['oneOf', 'anyOf', 'allOf'] as $xOf) {
+                if (isset($schema->{$xOf}) && is_array($schema->{$xOf})) {
+                    return self::convertNullableOneAnyAllOf($schema);
+                }
+            }
+        }
+
         foreach ($structs as $struct) {
             if (isset($schema->{$struct})) {
                 if (is_array($schema->{$struct})) {
@@ -95,6 +107,26 @@ class SchemaConverter
         if (! in_array($type, $validTypes, true)) {
             throw new InvalidTypeException('Type ' . json_encode($type) . ' is not a valid type.');
         }
+    }
+
+    /**
+     * @param object $schema
+     *
+     * @return object
+     */
+    private static function convertNullableOneAnyAllOf(object $schema) : object
+    {
+        $schemaCopy = clone $schema;
+        unset($schemaCopy->nullable);
+
+        return (object) [
+            'oneOf' => [
+                (object) [
+                    'type' => 'null'
+                ],
+                $schemaCopy
+            ],
+        ];
     }
 
     /**
