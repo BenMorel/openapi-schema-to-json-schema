@@ -522,4 +522,39 @@ JSON
 
         self::assertEquals($expected, $result);
     }
+
+    public function testHandlingPatternPropertiesWithNullableTypes() : void
+    {
+        $schema = json_decode(<<<'JSON'
+            {
+                "type": "object",
+                "x-patternProperties": {
+                    "^[a-z]*$": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            }
+JSON
+        );
+
+        $expected = json_decode(<<<'JSON'
+            {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "patternProperties": {
+                    "^[a-z]*$": {
+                        "type": ["string", "null"]
+                    }
+                }
+            }
+JSON
+        );
+
+        $result = Convert::openapiSchemaToJsonSchema($schema, [
+            'supportPatternProperties' => true
+        ]);
+
+        self::assertEquals($expected, $result);
+    }
 }
