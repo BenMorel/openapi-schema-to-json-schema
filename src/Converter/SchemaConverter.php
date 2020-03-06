@@ -89,10 +89,6 @@ class SchemaConverter
 
             if (isset($schema->patternProperties) && is_object($schema->patternProperties)) {
                 $schema->patternProperties = self::convertProperties($schema->patternProperties, $options);
-
-                if (! (array) $schema->patternProperties) {
-                    unset($schema->patternProperties);
-                }
             }
         }
 
