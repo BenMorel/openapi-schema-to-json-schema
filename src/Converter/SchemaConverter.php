@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BenMorel\OpenApiSchemaToJsonSchema\Converter;
 
 use BenMorel\OpenApiSchemaToJsonSchema\Exception\InvalidTypeException;
-use BenMorel\OpenapiSchemaToJsonSchema\Options;
+use BenMorel\OpenApiSchemaToJsonSchema\Options;
 
 use stdClass;
 
