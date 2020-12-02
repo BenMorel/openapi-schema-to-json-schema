@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BenMorel\OpenapiSchemaToJsonSchema;
+namespace BenMorel\OpenApiSchemaToJsonSchema;
 
 /**
  * The options passed to the converters.
