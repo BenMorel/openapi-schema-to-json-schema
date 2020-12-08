@@ -92,6 +92,49 @@ JSON;
 JSON;
 
     /**
+     * A nullable one|any|allOf with an object that has a nullable property itself.
+     */
+    private const RECURSIVE = <<<'JSON'
+            {
+                "nullable": true,
+                "xxxOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "nullable": true
+                            }
+                        }
+                    }
+                ]
+            }
+JSON;
+
+    private const RECURSIVE_EXPECTED = <<<'JSON'
+            {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "oneOf": [
+                    {
+                        "type": "null"
+                    },
+                    {
+                        "xxxOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": ["integer", "null"]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+JSON;
+
+    /**
      * @dataProvider providerHandlesNullableOneAnyAllOf
      *
      * @param string $schema   The OpenAPI schema.
@@ -117,6 +160,11 @@ JSON;
             yield [
                 str_replace('xxxOf', $xOf, self::MULTIPLE),
                 str_replace('xxxOf', $xOf, self::MULTIPLE_EXPECTED)
+            ];
+
+            yield [
+                str_replace('xxxOf', $xOf, self::RECURSIVE),
+                str_replace('xxxOf', $xOf, self::RECURSIVE_EXPECTED)
             ];
         }
     }
