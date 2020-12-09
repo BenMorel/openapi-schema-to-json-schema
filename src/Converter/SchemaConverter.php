@@ -44,7 +44,7 @@ class SchemaConverter
         if (isset($schema->nullable) && $schema->nullable === true) {
             foreach (['oneOf', 'anyOf', 'allOf'] as $xOf) {
                 if (isset($schema->{$xOf}) && is_array($schema->{$xOf})) {
-                    return self::convertNullableOneAnyAllOf($schema);
+                    return self::convertNullableOneAnyAllOf($schema, $options);
                 }
             }
         }
@@ -111,13 +111,15 @@ class SchemaConverter
 
     /**
      * @param object $schema
+     * @param Options $options
      *
      * @return object
      */
-    private static function convertNullableOneAnyAllOf(object $schema) : object
+    private static function convertNullableOneAnyAllOf(object $schema, Options $options) : object
     {
         $schemaCopy = clone $schema;
         unset($schemaCopy->nullable);
+        $schemaCopy = self::convertSchema($schemaCopy, $options);
 
         return (object) [
             'oneOf' => [

@@ -100,4 +100,37 @@ JSON
         $result = Convert::openapiSchemaToJsonSchema($schema);
         self::assertEquals($expected, $result);
     }
+
+    public function testHandlesNullableObjectsRecursively() : void
+    {
+        $schema = json_decode(<<<'JSON'
+            {
+                "nullable": true,
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "nullable": true,
+                        "type": "string"
+                    }
+                }
+            }
+JSON
+        );
+
+        $expected = json_decode(<<<'JSON'
+            {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": ["object", "null"],
+                "properties": {
+                    "id": {
+                        "type": ["string", "null"]
+                    }
+                }
+            }
+JSON
+        );
+
+        $result = Convert::openapiSchemaToJsonSchema($schema);
+        self::assertEquals($expected, $result);
+    }
 }
