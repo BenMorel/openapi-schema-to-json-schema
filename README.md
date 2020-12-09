@@ -43,7 +43,7 @@ composer require benmorel/openapi-schema-to-json-schema
 This library requires:
 
 - PHP 7.2 or later
-- the [JSON](http://php.net/manual/en/book.json.php) extension (should always be available)
+- the [json](http://php.net/manual/en/book.json.php) extension
 
 There is no dependency on third-party libraries.
 
