@@ -86,6 +86,10 @@ class SchemaConverter
 
         if (isset($schema->{'x-patternProperties'}) && is_object($schema->{'x-patternProperties'}) && $options->supportPatternProperties) {
             $schema = self::convertPatternProperties($schema, $options->patternPropertiesHandler);
+
+            if (isset($schema->patternProperties) && is_object($schema->patternProperties)) {
+                $schema->patternProperties = self::convertProperties($schema->patternProperties, $options);
+            }
         }
 
         foreach ($notSupported as $prop) {
