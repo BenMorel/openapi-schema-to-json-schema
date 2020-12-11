@@ -49,12 +49,6 @@ There is no dependency on third-party libraries.
 
 ## Project status & release process
 
-The current version `0.1.1` is based on the nodejs package version `2.2`, with two differences:
-
-- no `minimum` and `maximum` values are output for `int32`, `int64`, `float` and `double` types.
-  This is deemed unnecessary and error prone by the author of this port;
-- this library handles conversion of nullable `oneOf`/`anyOf`/`allOf` (see issue [#31](https://github.com/mikunn/openapi-schema-to-json-schema/issues/31))
-
 The current releases are numbered `0.x.y`. When a non-breaking change is introduced (adding new methods, optimizing
 existing code, etc.), `y` is incremented.
 
