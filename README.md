@@ -2,7 +2,7 @@
 
 A PHP library to convert an OpenAPI schema or parameter object to [JSON Schema](https://json-schema.org/).
 
-[![Build Status](https://www.travis-ci.com/BenMorel/openapi-schema-to-json-schema.svg?branch=master)](https://www.travis-ci.com/BenMorel/openapi-schema-to-json-schema)
+[![Build Status](https://github.com/BenMorel/openapi-schema-to-json-schema/workflows/CI/badge.svg)](https://github.com/BenMorel/openapi-schema-to-json-schema/actions)
 [![Coverage Status](https://coveralls.io/repos/github/BenMorel/openapi-schema-to-json-schema/badge.svg?branch=master)](https://coveralls.io/github/BenMorel/openapi-schema-to-json-schema?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/benmorel/openapi-schema-to-json-schema/v/stable)](https://packagist.org/packages/benmorel/openapi-schema-to-json-schema)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
